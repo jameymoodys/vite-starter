@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Main from "./views/Main/Main.jsx";
+import Drawer from "./views/Main/containers/Drawer.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ExtractionMaps from "./views/Main/containers/ExtractionMaps.jsx";
+import Entities from "./views/Main/containers/Entities.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Hello world</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter basename="/">
+      <div>Header</div>
+      <Routes>
+        <Route path="/" element={<Main />}>
+          <Route path="library" element={<Drawer />}>
+            <Route path="extraction-maps" element={<ExtractionMaps />} />
+            <Route path="entities" element={<Entities />} />
+          </Route>
+        </Route>
+        <Route path="*" element={<div>404 Not Found</div>} />
+      </Routes>
+      <div>Footer</div>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
