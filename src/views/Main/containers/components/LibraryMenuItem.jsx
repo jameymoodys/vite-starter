@@ -2,6 +2,8 @@ import React from "react";
 import Menu from "../../../../components/Menu";
 import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
+import { IconButton } from "@material-tailwind/react";
+import { MdMoreVert } from "react-icons/md";
 
 const LibraryMenuItem = ({
   el,
@@ -53,13 +55,15 @@ const LibraryMenuItem = ({
           </div>
         </div>
         <div className="relative inline-block text-left">
-          <button
-            onClick={() => setIsMenuOpen(isMenuOpen ? null : el.id)}
-            className="p-2"
-          >
-            Button
-          </button>
-          {isMenuOpen === el.id && <Menu optionsList={LIBRARY_MENU_OPTIONS} />}
+          <Menu optionsList={LIBRARY_MENU_OPTIONS}>
+            <IconButton
+              onClick={() => setIsMenuOpen(isMenuOpen ? null : el.id)}
+              variant="text"
+              className="p-2"
+            >
+              <MdMoreVert />
+            </IconButton>
+          </Menu>
         </div>
       </div>
     </div>
