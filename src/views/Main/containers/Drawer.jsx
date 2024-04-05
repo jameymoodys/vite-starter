@@ -2,6 +2,7 @@ import React from "react";
 import SubMenu from "../../../components/SubMenu";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { ROUTER_LINKS } from "../../../utils/routes";
+import { MdClose } from "react-icons/md";
 
 const MENU_LINKS = [
   {
@@ -20,11 +21,12 @@ const Drawer = () => {
         <div className="text-base text-blue-text">Library</div>
         <div className="flex items-center justify-center">
           <div
-            className="group inline-flex cursor-pointer items-center rounded px-4 py-2 font-bold text-grey-icons hover:bg-blue-button-hover hover:text-blue-text"
+            className="group inline-flex cursor-pointer items-center rounded p-2 font-bold text-grey-icons hover:bg-blue-button-hover hover:text-blue-text"
             onClick={closeDrawer}
           >
-            {/* TODO: Use MUI icons lib && add CrossIcon */}
-            <span className="cross-icon group-hover:block">X</span>
+            <span className="group-hover:block">
+              <MdClose size={18} />
+            </span>
           </div>
         </div>
       </div>

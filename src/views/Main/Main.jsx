@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ROUTER_LINKS } from "../../utils/routes";
+import { MdAdd } from "react-icons/md";
+import Dialog from "../../components/Dialog";
+import Menu from "../../components/Menu";
+import { IconButton } from "@material-tailwind/react";
 
 const Main = () => {
+  const [openDialog, setOpenDialog] = useState(false);
   const navigate = useNavigate();
   const location = useLocation(ROUTER_LINKS.LIBRARY);
 
@@ -13,18 +18,6 @@ const Main = () => {
   const closeDrawer = () => {
     navigate(ROUTER_LINKS.MAIN);
   };
-
-  // Effect to add event listener for clicks outside the Drawer
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!document.querySelector(".drawer")?.contains(event.target)) {
-        navigate(ROUTER_LINKS.MAIN);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open]); // Only re-run if open var changes
 
   return (
     <>
@@ -36,10 +29,29 @@ const Main = () => {
       )}
       <div className="mx-2 flex items-center justify-between pt-2">
         <div>Submission Folders</div>
-        <Button handleAction={openDrawer}>
-          <div>Library</div>
-        </Button>
+        <div>
+          <Menu
+            optionsList={[
+              {
+                displayName: "New Submission Folder",
+                action: () => setOpenDialog(true),
+              },
+            ]}
+          >
+            <IconButton variant="text">
+              <MdAdd />
+            </IconButton>
+          </Menu>
+          <Button onClick={openDrawer}>
+            <div>Library</div>
+          </Button>
+        </div>
       </div>
+      <Dialog
+        isOpen={openDialog}
+        handleOpen={() => setOpenDialog((open) => !open)}
+        title={"NEW SUBMISSION FOLDER"}
+      />
       <Outlet context={{ closeDrawer }} />
     </>
   );
