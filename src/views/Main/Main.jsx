@@ -6,8 +6,8 @@ import { MdAdd } from "react-icons/md";
 import Dialog from "../../components/Dialog";
 import Menu from "../../components/Menu";
 import Input from "../../components/Input";
-import IconButton from "../../components/IconButton";
 import { MdOutlineLibraryBooks } from "react-icons/md";
+import { IconButton } from "@material-tailwind/react";
 
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -40,7 +40,10 @@ const Main = () => {
               },
             ]}
           >
-            <IconButton>
+            <IconButton
+              variant="text"
+              className="hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
+            >
               <MdAdd />
             </IconButton>
           </Menu>
@@ -48,7 +51,7 @@ const Main = () => {
             <div className="pr-2">
               <MdOutlineLibraryBooks />
             </div>
-            <div>Library</div>
+            Library
           </Button>
         </div>
       </div>
