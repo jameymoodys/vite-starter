@@ -2,8 +2,10 @@ import React from "react";
 import Menu from "../../../../components/Menu";
 import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
-import { IconButton } from "@material-tailwind/react";
 import { MdMoreVert } from "react-icons/md";
+import { MdOutlineOpenInNew } from "react-icons/md";
+import IconButton from "../../../../components/IconButton";
+import SmallItalicText from "../../../../components/Typography/SmallItalicText";
 
 const LibraryMenuItem = ({
   el,
@@ -32,7 +34,7 @@ const LibraryMenuItem = ({
           <div className="pr-3">Logo</div>
           <div>
             <div>{el.website}</div>
-            <div className="text-xs italic text-gray-400">{el.username}</div>
+            <SmallItalicText>{el.username}</SmallItalicText>
             {el.id === expandedId && (
               <>
                 <div className="mt-2 text-xs">Additional Info</div>
@@ -44,8 +46,11 @@ const LibraryMenuItem = ({
                     },
                   ].map((el, index) => (
                     <div key={index} className="mr-2">
-                      <Button type={BUTTON_TYPES.SMALL_TRANSPARENT}>
-                        {el.displayName}
+                      <Button styleType={BUTTON_TYPES.SMALL_TRANSPARENT}>
+                        <div>{el.displayName}</div>
+                        <div>
+                          <MdOutlineOpenInNew />
+                        </div>
                       </Button>
                     </div>
                   ))}
@@ -58,10 +63,8 @@ const LibraryMenuItem = ({
           <Menu optionsList={LIBRARY_MENU_OPTIONS}>
             <IconButton
               onClick={() => setIsMenuOpen(isMenuOpen ? null : el.id)}
-              variant="text"
-              className="p-2"
             >
-              <MdMoreVert />
+              <MdMoreVert size={18} />
             </IconButton>
           </Menu>
         </div>

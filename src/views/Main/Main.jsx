@@ -5,7 +5,9 @@ import { ROUTER_LINKS } from "../../utils/routes";
 import { MdAdd } from "react-icons/md";
 import Dialog from "../../components/Dialog";
 import Menu from "../../components/Menu";
-import { IconButton } from "@material-tailwind/react";
+import Input from "../../components/Input";
+import IconButton from "../../components/IconButton";
+import { MdOutlineLibraryBooks } from "react-icons/md";
 
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -29,7 +31,7 @@ const Main = () => {
       )}
       <div className="mx-2 flex items-center justify-between pt-2">
         <div>Submission Folders</div>
-        <div>
+        <div className="flex">
           <Menu
             optionsList={[
               {
@@ -38,11 +40,14 @@ const Main = () => {
               },
             ]}
           >
-            <IconButton variant="text">
+            <IconButton>
               <MdAdd />
             </IconButton>
           </Menu>
           <Button onClick={openDrawer}>
+            <div className="pr-2">
+              <MdOutlineLibraryBooks />
+            </div>
             <div>Library</div>
           </Button>
         </div>
@@ -51,7 +56,10 @@ const Main = () => {
         isOpen={openDialog}
         handleOpen={() => setOpenDialog((open) => !open)}
         title={"NEW SUBMISSION FOLDER"}
-      />
+      >
+        <Input label="Submission Folder Name" />
+        <Input label="Description" />
+      </Dialog>
       <Outlet context={{ closeDrawer }} />
     </>
   );

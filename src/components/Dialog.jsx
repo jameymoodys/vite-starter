@@ -7,7 +7,7 @@ import {
 import Button from "./Button";
 import { BUTTON_TYPES } from "../utils/consts";
 
-const Dialog = ({ isOpen, handleOpen, title }) => {
+const Dialog = ({ isOpen, handleOpen, title, renderDialogBody, children }) => {
   return (
     <DialogMaterial
       open={isOpen}
@@ -17,7 +17,7 @@ const Dialog = ({ isOpen, handleOpen, title }) => {
       <div className="mt-[20px] px-[32px] text-[16px] uppercase text-blue-text">
         {title}
       </div>
-      <DialogBody>Dialog Body</DialogBody>
+      <DialogBody>{children}</DialogBody>
       <DialogFooter>
         <Button
           variant="text"
@@ -27,7 +27,7 @@ const Dialog = ({ isOpen, handleOpen, title }) => {
         >
           <span>Cancel</span>
         </Button>
-        <Button onClick={handleOpen} type={BUTTON_TYPES.NORMAL_CONFIRM}>
+        <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
           <span>Confirm</span>
         </Button>
       </DialogFooter>
