@@ -9,7 +9,7 @@ const Input = ({ label, isError }) => {
         label={label}
         placeholder="Standard"
         error={isError}
-        className="w-[320px]"
+        className="w-[420px]"
       />
     </div>
   );

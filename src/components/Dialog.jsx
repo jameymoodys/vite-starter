@@ -12,7 +12,8 @@ const Dialog = ({ isOpen, handleOpen, title, renderDialogBody, children }) => {
     <DialogMaterial
       open={isOpen}
       handler={handleOpen}
-      className="w-[108px] rounded-none"
+      className="rounded-none"
+      size="sm"
     >
       <div className="mt-[20px] px-[32px] text-[16px] uppercase text-blue-text">
         {title}

@@ -42,9 +42,9 @@ const Main = () => {
           >
             <IconButton
               variant="text"
-              className="hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
+              className="mr-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
             >
-              <MdAdd />
+              <MdAdd size={22} />
             </IconButton>
           </Menu>
           <Button onClick={openDrawer}>
