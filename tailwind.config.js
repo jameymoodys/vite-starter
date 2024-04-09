@@ -11,6 +11,7 @@ module.exports = withMT({
         "blue-text": "#135e82",
         "blue-dark": "#135e82",
         "grey-icons": "#8295a5",
+        "blue-light-opacity": "rgba(19, 94, 130, 0.1)",
         "grey-background": "#efefef",
         "green-success": "#69A74B",
         "orange-ki": "#E98C05",

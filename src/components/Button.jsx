@@ -10,7 +10,7 @@ const Button = ({
     const sharedStyles = "flex items-center";
     switch (styleType) {
       case BUTTON_TYPES.SMALL_BLUE:
-        return `${sharedStyles} bg-blue-button-hover hover:bg-blue-button-hover px-2 py-1 text-blue-text text-xs`;
+        return `${sharedStyles} bg-blue-light-opacity hover:bg-blue-button-hover px-2 py-1 text-blue-text text-xs`;
       case BUTTON_TYPES.SMALL_TRANSPARENT:
         return `${sharedStyles} hover:bg-blue-button-hover px-2 py-1 text-blue-text text-xs`;
       case BUTTON_TYPES.NORMAL_TRANSPARENT:
