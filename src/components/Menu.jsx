@@ -15,7 +15,7 @@ const Menu = ({ optionsList, children }) => {
           {optionsList.map((el, index) => (
             <div
               key={index}
-              className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="cursor-pointer px-4 py-3 text-sm text-gray-700 outline-0  hover:bg-blue-button-hover"
               onClick={el.action}
             >
               {el.displayName}

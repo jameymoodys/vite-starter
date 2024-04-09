@@ -8,6 +8,7 @@ import Menu from "../../components/Menu";
 import Input from "../../components/Input";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { IconButton } from "@material-tailwind/react";
+import HeadingText from "../../components/Typography/HeadingText";
 
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -21,6 +22,17 @@ const Main = () => {
     navigate(ROUTER_LINKS.MAIN);
   };
 
+  const ADD_MENU_OPTIONS = [
+    {
+      displayName: "New Submission Folder",
+      action: () => setOpenDialog(true),
+    },
+    {
+      displayName: "New Extraction Map",
+      action: () => setOpenDialog(true),
+    },
+  ];
+
   return (
     <>
       {open && (
@@ -29,17 +41,10 @@ const Main = () => {
           onClick={closeDrawer}
         ></div>
       )}
-      <div className="mx-2 flex items-center justify-between pt-2">
-        <div>Submission Folders</div>
+      <div className="mx-4 flex items-center justify-between pt-2">
+        <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
-          <Menu
-            optionsList={[
-              {
-                displayName: "New Submission Folder",
-                action: () => setOpenDialog(true),
-              },
-            ]}
-          >
+          <Menu optionsList={ADD_MENU_OPTIONS}>
             <IconButton
               variant="text"
               className="mr-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
