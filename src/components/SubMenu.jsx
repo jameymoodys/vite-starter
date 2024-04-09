@@ -9,7 +9,7 @@ const SubMenu = ({ links }) => {
           key={index}
           to={el.link}
           className={({ isActive }) =>
-            `cursor-pointer border-b-2 px-6 py-2 hover:border-blue-text hover:text-blue-text ${
+            `z-10 cursor-pointer border-b-2 px-6 py-2 hover:border-blue-text hover:text-blue-text ${
               isActive ? "border-blue-text text-blue-text" : "text-grey-icons"
             }`
           }

@@ -9,7 +9,9 @@ module.exports = withMT({
       colors: {
         "blue-button-hover": "#d6e6fe",
         "blue-text": "#135e82",
+        "blue-dark": "#135e82",
         "grey-icons": "#8295a5",
+        "grey-background": "#efefef",
         "green-success": "#69A74B",
         "orange-ki": "#E98C05",
         "red-error": "#b82121",
