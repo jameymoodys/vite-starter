@@ -3,9 +3,9 @@ import Button from "../../../components/Button";
 import { BUTTON_TYPES } from "../../../utils/consts";
 import LibraryMenuItem from "./components/LibraryMenuItem";
 import { MdSearch } from "react-icons/md";
-import IconButton from "../../../components/IconButton";
 import Select from "../../../components/Select";
 import SmallItalicText from "../../../components/Typography/SmallItalicText";
+import { IconButton } from "@material-tailwind/react";
 
 const ExtractionMaps = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(null);
@@ -32,7 +32,10 @@ const ExtractionMaps = () => {
           </div>
         </div>
         <div>
-          <IconButton>
+          <IconButton
+            variant="text"
+            className="hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
+          >
             <MdSearch size={18} />
           </IconButton>
         </div>
