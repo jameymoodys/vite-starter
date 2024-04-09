@@ -4,8 +4,8 @@ import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
 import { MdMoreVert } from "react-icons/md";
 import { MdOutlineOpenInNew } from "react-icons/md";
-import IconButton from "../../../../components/IconButton";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
+import { IconButton } from "@material-tailwind/react";
 
 const LibraryMenuItem = ({
   el,
@@ -62,6 +62,8 @@ const LibraryMenuItem = ({
         <div className="relative inline-block text-left">
           <Menu optionsList={LIBRARY_MENU_OPTIONS}>
             <IconButton
+              variant="text"
+              className="hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
               onClick={() => setIsMenuOpen(isMenuOpen ? null : el.id)}
             >
               <MdMoreVert size={18} />
