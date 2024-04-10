@@ -119,10 +119,7 @@ const NewMapDialog = ({ handleClose }) => {
               {isDragActive ? (
                 <p>Drop the files here ...</p>
               ) : (
-                <p>
-                  Would you like to provide a Sample File? XLS, CSV and
-                  delimited TXT are supported.
-                </p>
+                <>{renderUploadTitle()}</>
               )}
             </div>
           </>
