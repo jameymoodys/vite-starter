@@ -7,8 +7,9 @@ import Dialog from "../../components/Dialog";
 import Menu from "../../components/Menu";
 import Input from "../../components/Input";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { IconButton } from "@material-tailwind/react";
+import { DialogBody, DialogFooter, IconButton } from "@material-tailwind/react";
 import HeadingText from "../../components/Typography/HeadingText";
+import { BUTTON_TYPES } from "../../utils/consts";
 
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -65,8 +66,23 @@ const Main = () => {
         handleOpen={() => setOpenDialog((open) => !open)}
         title={"NEW SUBMISSION FOLDER"}
       >
-        <Input label="Submission Folder Name" />
-        <Input label="Description" />
+        <DialogBody>
+          <Input label="Submission Folder Name" />
+          <Input label="Description" />
+        </DialogBody>
+        <DialogFooter>
+          <Button
+            variant="text"
+            color="red"
+            onClick={() => setOpenDialog(null)}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
+          <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
+            <span>Confirm</span>
+          </Button>
+        </DialogFooter>
       </Dialog>
       <Outlet context={{ closeDrawer }} />
     </>

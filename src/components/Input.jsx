@@ -7,7 +7,6 @@ const Input = ({ label, isError }) => {
       <InputMaterial
         variant="standard"
         label={label}
-        placeholder="Standard"
         error={isError}
         className="w-[420px]"
       />

@@ -6,6 +6,7 @@ import { MdMoreVert } from "react-icons/md";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
 import { IconButton } from "@material-tailwind/react";
+import { MdWindow } from "react-icons/md";
 
 const LibraryMenuItem = ({
   el,
@@ -40,7 +41,9 @@ const LibraryMenuItem = ({
     >
       <div className="flex justify-between">
         <div className="flex">
-          <div className="pr-3">Logo</div>
+          <div className="pr-3 text-blue-text">
+            <MdWindow size={24} />
+          </div>
           <div>
             <div>{el.website}</div>
             <SmallItalicText>{el.username}</SmallItalicText>

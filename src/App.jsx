@@ -2,8 +2,8 @@ import React from "react";
 import Main from "./views/Main/Main.jsx";
 import Drawer from "./views/Main/containers/Drawer.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ExtractionMaps from "./views/Main/containers/ExtractionMaps.jsx";
-import Entities from "./views/Main/containers/Entities.jsx";
+import ExtractionMaps from "./views/Main/containers/ExtractionMaps/ExtractionMaps.jsx";
+import Entities from "./views/Main/containers/Entities/Entities.jsx";
 import Header from "./components/Layout/Header.jsx";
 import Footer from "./components/Layout/Footer.jsx";
 
