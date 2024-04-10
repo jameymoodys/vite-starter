@@ -5,6 +5,7 @@ const Input = ({ label, isError }) => {
   return (
     <div className="mb-[16px]">
       <InputMaterial
+        color="blue"
         variant="standard"
         label={label}
         error={isError}

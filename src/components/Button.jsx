@@ -8,19 +8,21 @@ const Button = ({
 }) => {
   const getButtonStyled = () => {
     const sharedStyles = "flex items-center";
+    const smallButtonMargins = "px-2 py-1";
+    const normalButtonMargins = "px-4 py-2";
     switch (styleType) {
       case BUTTON_TYPES.SMALL_BLUE:
-        return `${sharedStyles} bg-blue-light-opacity hover:bg-blue-button-hover px-2 py-1 text-blue-text text-xs`;
+        return `${sharedStyles} ${smallButtonMargins} bg-blue-light-opacity hover:bg-blue-button-hover text-blue-text text-xs`;
       case BUTTON_TYPES.SMALL_TRANSPARENT:
-        return `${sharedStyles} hover:bg-blue-button-hover px-2 py-1 text-blue-text text-xs`;
+        return `${sharedStyles} ${smallButtonMargins} hover:bg-blue-button-hover text-blue-text text-xs`;
       case BUTTON_TYPES.NORMAL_TRANSPARENT:
-        return `${sharedStyles} hover:bg-blue-button-hover px-4 py-2 text-blue-text`;
+        return `${sharedStyles} ${normalButtonMargins} hover:bg-blue-button-hover text-blue-text`;
       case BUTTON_TYPES.NORMAL_CANCEL:
-        return `${sharedStyles} bg-white px-4 py-2`;
+        return `${sharedStyles} ${normalButtonMargins} bg-white `;
       case BUTTON_TYPES.NORMAL_CONFIRM:
-        return `${sharedStyles} bg-white hover:text-white px-4 py-2 hover:bg-orange-ki`;
+        return `${sharedStyles} ${normalButtonMargins} bg-white hover:text-white  hover:bg-orange-ki`;
       default:
-        return `hover:bg-blue-button-hover px-4 py-2 text-blue-text`;
+        return `${normalButtonMargins} hover:bg-blue-button-hover text-blue-text`;
     }
   };
 

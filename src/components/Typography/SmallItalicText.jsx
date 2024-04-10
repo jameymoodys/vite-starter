@@ -1,7 +1,9 @@
 import React from "react";
 
 const SmallItalicText = ({ children }) => {
-  return <div className="text-xs italic text-gray-400">{children}</div>;
+  return (
+    <div className="text-xs font-medium italic text-grey-icons">{children}</div>
+  );
 };
 
 export default SmallItalicText;
