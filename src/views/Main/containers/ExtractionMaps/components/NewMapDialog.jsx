@@ -58,14 +58,14 @@ const NewMapDialog = ({ handleClose }) => {
     switch (mapType) {
       case "Data Import":
         return (
-          <div>
+          <div className="text-black">
             Would you like to provide a Sample File? XLS, CSV and delimited TXT
             are supported.
           </div>
         );
       case "IVY Extraction":
         return (
-          <div>
+          <div className="text-black">
             Drop your IVY Mapping File (required) and your PDF Sample Fle
             (optional)
           </div>
@@ -83,14 +83,14 @@ const NewMapDialog = ({ handleClose }) => {
             <div className="my-4 text-blue-text">
               What is the expected extraction map type?
             </div>
-            <div>
+            <div className="divide-y-4 divide-white">
               {EXTRACTION_MAPS_TYPES.map((el, index) => (
                 <div
                   key={index}
-                  className="mb-4 flex cursor-pointer p-5 hover:bg-blue-button-hover"
+                  className="flex cursor-pointer p-5 hover:bg-blue-button-hover"
                   onClick={() => handleType(el.title)}
                 >
-                  <div className="mr-4 h-[40px] w-[40px] bg-blue-text"></div>
+                  <div className="mr-4 size-[40px] bg-blue-text"></div>
                   <div>
                     <div>{el.title}</div>
                     <SmallItalicText>{el.desc}</SmallItalicText>
@@ -104,7 +104,7 @@ const NewMapDialog = ({ handleClose }) => {
         return (
           <>
             <div className="mb-3 flex">
-              <div className="mr-2">Mapping Type:</div>
+              <div className="mr-2 text-black">Mapping Type:</div>
               <Chip
                 value={mapType}
                 renderIcon={() => <MdClose size={12} />}
