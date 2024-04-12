@@ -5,20 +5,19 @@ import LibraryMenuItem from "../components/LibraryMenuItem";
 import { MdSearch } from "react-icons/md";
 import Select from "../../../../components/Select";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
-import { IconButton } from "@material-tailwind/react";
 import NewMapDialog from "./components/NewMapDialog";
 
 const MENU_ITEMS = [
   {
-    title: "@material-tailwind/html",
+    title: "html",
     id: 1,
   },
   {
-    title: "@material-tailwind/react",
+    title: "react",
     id: 2,
   },
   {
-    title: "Material Tailwind PRO",
+    title: "PRO",
     id: 3,
   },
 ];
@@ -72,13 +71,10 @@ const ExtractionMaps = () => {
             />
           </div>
         </div>
-        <div>
-          <IconButton
-            variant="text"
-            className="ml-3 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
-          >
+        <div className="ml-3">
+          <button className=" p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text">
             <MdSearch size={22} />
-          </IconButton>
+          </button>
         </div>
       </div>
       {data.map((el) => (

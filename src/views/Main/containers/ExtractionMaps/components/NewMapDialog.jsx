@@ -6,6 +6,8 @@ import Input from "../../../../../components/Input";
 import SmallItalicText from "../../../../../components/Typography/SmallItalicText";
 import Chip from "../../../../../components/Chip";
 import { MdClose } from "react-icons/md";
+import Button from "../../../../../components/Button";
+import { BUTTON_TYPES } from "../../../../../utils/consts";
 
 const EXTRACTION_MAPS_TYPES = [
   {
@@ -58,15 +60,15 @@ const NewMapDialog = ({ handleClose }) => {
     switch (mapType) {
       case "Data Import":
         return (
-          <div className="text-black">
+          <div className="text-sm text-black">
             Would you like to provide a Sample File? XLS, CSV and delimited TXT
             are supported.
           </div>
         );
       case "IVY Extraction":
         return (
-          <div className="text-black">
-            Drop your IVY Mapping File (required) and your PDF Sample Fle
+          <div className="text-sm text-black">
+            Drop your IVY Mapping File (required) <br /> and your PDF Sample Fle
             (optional)
           </div>
         );
@@ -103,7 +105,7 @@ const NewMapDialog = ({ handleClose }) => {
       case 2:
         return (
           <>
-            <div className="mb-3 flex">
+            <div className="mb-5 flex">
               <div className="mr-2 text-black">Mapping Type:</div>
               <Chip
                 value={mapType}
@@ -114,13 +116,26 @@ const NewMapDialog = ({ handleClose }) => {
                 }}
               />
             </div>
-            <div {...getRootProps()}>
+            <div
+              {...getRootProps()}
+              className={`cursor-pointer rounded-lg border border-dashed p-6 hover:border-blue-500 ${isDragActive && "border-blue-500"}`}
+            >
               <input {...getInputProps()} />
-              {isDragActive ? (
-                <p>Drop the files here ...</p>
-              ) : (
-                <>{renderUploadTitle()}</>
-              )}
+              <div>{renderUploadTitle()}</div>
+              <div className="mt-2 flex ">
+                <div className="pr-4">
+                  <Button
+                    styleType={BUTTON_TYPES.SMALL_BLUE}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextStep();
+                    }}
+                  >
+                    No, skip
+                  </Button>
+                </div>
+                <Button styleType={BUTTON_TYPES.SMALL_BLUE}>Browse...</Button>
+              </div>
             </div>
           </>
         );

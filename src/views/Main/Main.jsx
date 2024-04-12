@@ -7,7 +7,6 @@ import Dialog from "../../components/Dialog";
 import Menu from "../../components/Menu";
 import Input from "../../components/Input";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { DialogBody, DialogFooter, IconButton } from "@material-tailwind/react";
 import HeadingText from "../../components/Typography/HeadingText";
 import { BUTTON_TYPES } from "../../utils/consts";
 
@@ -46,12 +45,9 @@ const Main = () => {
         <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
           <Menu optionsList={ADD_MENU_OPTIONS}>
-            <IconButton
-              variant="text"
-              className="mr-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
-            >
+            <button className="mr-2 p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text">
               <MdAdd size={22} />
-            </IconButton>
+            </button>
           </Menu>
           <Button onClick={openDrawer}>
             <div className="pr-2">
@@ -66,23 +62,24 @@ const Main = () => {
         handleOpen={() => setOpenDialog((open) => !open)}
         title={"NEW SUBMISSION FOLDER"}
       >
-        <DialogBody>
+        <div className="mx-10 my-5">
           <Input label="Submission Folder Name" />
           <Input label="Description" />
-        </DialogBody>
-        <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
-            onClick={() => setOpenDialog(null)}
-            className="mr-1"
-          >
-            <span>Cancel</span>
-          </Button>
-          <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
-            <span>Confirm</span>
-          </Button>
-        </DialogFooter>
+
+          <div className="flex justify-end">
+            <Button
+              variant="text"
+              color="red"
+              onClick={() => setOpenDialog(null)}
+              className="mr-1"
+            >
+              <span>Cancel</span>
+            </Button>
+            <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
+              <span>Confirm</span>
+            </Button>
+          </div>
+        </div>
       </Dialog>
       <Outlet context={{ closeDrawer }} />
     </>
