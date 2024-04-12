@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ROUTER_LINKS } from "../../utils/routes";
 import { MdAdd } from "react-icons/md";
-import Dialog from "../../components/Dialog";
+import DialogComponent from "../../components/Dialog";
 import Menu from "../../components/Menu";
 import Input from "../../components/Input";
 import { MdOutlineLibraryBooks } from "react-icons/md";
@@ -57,9 +57,9 @@ const Main = () => {
           </Button>
         </div>
       </div>
-      <Dialog
+      <DialogComponent
         isOpen={openDialog}
-        handleOpen={() => setOpenDialog((open) => !open)}
+        handleClose={() => setOpenDialog((open) => !open)}
         title={"NEW SUBMISSION FOLDER"}
       >
         <div className="mx-10 my-5">
@@ -80,7 +80,7 @@ const Main = () => {
             </Button>
           </div>
         </div>
-      </Dialog>
+      </DialogComponent>
       <Outlet context={{ closeDrawer }} />
     </>
   );

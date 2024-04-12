@@ -4,7 +4,6 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
-  Typography,
 } from "@material-tailwind/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
@@ -32,9 +31,7 @@ const Select = ({ onChange, value, menuItems }) => {
                 className="m-0"
                 onClick={() => onChange(title)}
               >
-                <Typography variant="small" color="blue-gray">
-                  {title}
-                </Typography>
+                <div>{title}</div>
               </MenuItem>
             ))}
           </ul>

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-import Dialog from "../../../../../components/Dialog";
+import DialogComponent from "../../../../../components/Dialog";
 import Input from "../../../../../components/Input";
 import SmallItalicText from "../../../../../components/Typography/SmallItalicText";
 import Chip from "../../../../../components/Chip";
@@ -145,12 +145,16 @@ const NewMapDialog = ({ handleClose }) => {
   };
 
   return (
-    <Dialog isOpen={true} title="NEW EXTRACTION MAP" handleClose={handleClose}>
+    <DialogComponent
+      isOpen={true}
+      title="NEW EXTRACTION MAP"
+      handleClose={handleClose}
+    >
       <div className="m-10">
         <Input label="Map Name" />
         {renderStep()}
       </div>
-    </Dialog>
+    </DialogComponent>
   );
 };
 
