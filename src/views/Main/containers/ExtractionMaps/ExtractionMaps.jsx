@@ -3,7 +3,7 @@ import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
 import LibraryMenuItem from "../components/LibraryMenuItem";
 import { MdSearch } from "react-icons/md";
-import Select from "../../../../components/Select";
+import SelectComponent from "../../../../components/Select";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
 import NewMapDialog from "./components/NewMapDialog";
 
@@ -64,7 +64,7 @@ const ExtractionMaps = () => {
             <SmallItalicText>Client/Facility:</SmallItalicText>
           </div>
           <div>
-            <Select
+            <SelectComponent
               value={filterValue}
               onChange={(v) => setFilterValue(v)}
               menuItems={MENU_ITEMS}

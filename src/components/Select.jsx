@@ -1,44 +1,46 @@
 import React from "react";
-import {
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-} from "@material-tailwind/react";
+import * as Select from "@radix-ui/react-select";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const Select = ({ onChange, value, menuItems }) => {
+const SelectComponent = ({ onChange, value, menuItems }) => {
+  // TODO: Fix rotating icon
   const [openMenu, setOpenMenu] = React.useState(false);
 
   return (
-    <>
-      <Menu open={openMenu} handler={setOpenMenu}>
-        <MenuHandler>
-          <div className="flex items-center px-2 py-1 text-[12px] font-normal tracking-normal hover:cursor-pointer hover:bg-blue-button-hover">
-            {value || "test"}
-            <MdKeyboardArrowDown
-              className={`h-3.5 w-3.5 transition-transform ${
-                openMenu ? "rotate-180" : ""
-              }`}
-            />
-          </div>
-        </MenuHandler>
-        <MenuList className="hidden overflow-visible p-0 lg:grid">
-          <ul className="col-span-4 flex w-full flex-col gap-1">
-            {menuItems.map(({ title }) => (
-              <MenuItem
-                key={title}
-                className="m-0"
-                onClick={() => onChange(title)}
+    <Select.Root value={value} onValueChange={onChange}>
+      <Select.Trigger className="relative flex items-center">
+        <div className="relative flex items-center">
+          <Select.Value aria-label={value}>{value}</Select.Value>
+          <MdKeyboardArrowDown
+            className={`h-3.5 w-3.5 transition-transform ${
+              openMenu ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+      </Select.Trigger>
+      <Select.Portal className="z-50">
+        <Select.Content
+          position="popper"
+          className="absolute mt-1 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        >
+          <Select.Viewport>
+            {menuItems.map((item) => (
+              <Select.Item
+                key={item.id}
+                value={item.title}
+                className="cursor-pointer  pb-2 pl-2"
               >
-                <div>{title}</div>
-              </MenuItem>
+                <Select.ItemText className="text-black-500">
+                  {item.title || "test"}
+                </Select.ItemText>
+                <Select.ItemIndicator>…</Select.ItemIndicator>
+              </Select.Item>
             ))}
-          </ul>
-        </MenuList>
-      </Menu>
-    </>
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 };
 
-export default Select;
+export default SelectComponent;

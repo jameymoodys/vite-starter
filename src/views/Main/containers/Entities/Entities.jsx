@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
-import Select from "../../../../components/Select";
+import SelectComponent from "../../../../components/Select";
 
 const Entities = () => {
   const [filterValue, setFilterValue] = useState(null);
@@ -18,7 +18,7 @@ const Entities = () => {
             <SmallItalicText>Client/Facility:</SmallItalicText>
           </div>
           <div>
-            <Select
+            <SelectComponent
               value={filterValue}
               onChange={(v) => setFilterValue(v)}
               menuItems={[]}
