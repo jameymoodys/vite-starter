@@ -3,12 +3,11 @@ import Button from "../../components/Button";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ROUTER_LINKS } from "../../utils/routes";
 import { MdAdd } from "react-icons/md";
-import DialogComponent from "../../components/Dialog";
 import Menu from "../../components/Menu";
-import Input from "../../components/Input";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import HeadingText from "../../components/Typography/HeadingText";
 import { BUTTON_TYPES } from "../../utils/consts";
+import NewSubmissionFolderDialog from "./containers/components/NewSubmissionFolderDialog";
 
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -57,28 +56,10 @@ const Main = () => {
           </Button>
         </div>
       </div>
-      <DialogComponent
-        isOpen={openDialog}
-        handleClose={() => setOpenDialog((open) => !open)}
-        title={"NEW SUBMISSION FOLDER"}
-      >
-        <div className="mx-10 my-5">
-          <Input label="Submission Folder Name" />
-          <Input label="Description" />
-          <div className="mb-[32px] mt-[56px] flex justify-end">
-            <Button
-              onClick={() => setOpenDialog(null)}
-              styleType={BUTTON_TYPES.NORMAL_CANCEL}
-              additionalClasses="mr-2"
-            >
-              <span>Cancel</span>
-            </Button>
-            <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
-              <span>Confirm</span>
-            </Button>
-          </div>
-        </div>
-      </DialogComponent>
+      <NewSubmissionFolderDialog
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+      />
       <Outlet context={{ closeDrawer }} />
     </>
   );

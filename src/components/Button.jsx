@@ -8,6 +8,7 @@ const Button = ({
   styleType = BUTTON_TYPES.NORMAL_TRANSPARENT,
   disabled = false,
   additionalClasses = "",
+  type = "button",
 }) => {
   const getButtonStyled = () => {
     const sharedStyles = "flex items-center disabled:cursor-default";
@@ -36,6 +37,7 @@ const Button = ({
       onClick={onClick}
       className={clsx(getButtonStyled(), additionalClasses)}
       disabled={disabled}
+      type={type}
     >
       {children}
     </button>

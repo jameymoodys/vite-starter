@@ -8,6 +8,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        // BLACK
+        black: "#333333",
         // *BLUE*
         // Hover table rows
         "blue-button-hover": "#d6e6fe",

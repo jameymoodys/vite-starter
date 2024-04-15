@@ -3,19 +3,23 @@ import * as Select from "@radix-ui/react-select";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 const SelectComponent = ({ onChange, value, menuItems }) => {
-  // TODO: Fix rotating icon
-  const [openMenu, setOpenMenu] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <Select.Root value={value} onValueChange={onChange}>
+    <Select.Root value={value} onValueChange={onChange} onOpenChange={setOpen}>
       <Select.Trigger className="relative flex items-center">
         <div className="relative flex items-center">
-          <Select.Value aria-label={value}>{value}</Select.Value>
-          <MdKeyboardArrowDown
-            className={`h-3.5 w-3.5 transition-transform ${
-              openMenu ? "rotate-180" : ""
-            }`}
-          />
+          <div className="mr-2 text-[12px] italic">
+            <Select.Value aria-label={value}>{value}</Select.Value>
+          </div>
+          <div>
+            <MdKeyboardArrowDown
+              size={18}
+              className={`h-3.5 w-3.5 transition-transform ${
+                open ? "rotate-180" : ""
+              }`}
+            />
+          </div>
         </div>
       </Select.Trigger>
       <Select.Portal className="z-50">
@@ -28,12 +32,11 @@ const SelectComponent = ({ onChange, value, menuItems }) => {
               <Select.Item
                 key={item.id}
                 value={item.title}
-                className="cursor-pointer  pb-2 pl-2"
+                className="cursor-pointer p-2 hover:bg-blue-button-hover"
               >
-                <Select.ItemText className="text-black-500">
-                  {item.title || "test"}
-                </Select.ItemText>
-                <Select.ItemIndicator>…</Select.ItemIndicator>
+                <div className="text-[12px] italic text-black">
+                  <Select.ItemText>{item.title || "test"}</Select.ItemText>
+                </div>
               </Select.Item>
             ))}
           </Select.Viewport>
