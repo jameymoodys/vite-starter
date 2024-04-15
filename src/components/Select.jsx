@@ -1,15 +1,26 @@
 import React from "react";
 import * as Select from "@radix-ui/react-select";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import clsx from "clsx";
 
-const SelectComponent = ({ onChange, value, menuItems }) => {
+const SelectComponent = ({ onChange, value, menuItems, disabled }) => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Select.Root value={value} onValueChange={onChange} onOpenChange={setOpen}>
-      <Select.Trigger className="relative flex items-center">
+    <Select.Root
+      value={value}
+      onValueChange={onChange}
+      onOpenChange={setOpen}
+      disabled={menuItems.length === 0 || disabled}
+    >
+      <Select.Trigger
+        className={clsx(
+          "relative flex items-center",
+          (menuItems.length === 0 || disabled) && "opacity-30",
+        )}
+      >
         <div className="relative flex items-center">
-          <div className="mr-2 text-[12px] italic">
+          <div className="mr-2 min-w-[25px] text-[12px] italic">
             <Select.Value aria-label={value}>{value}</Select.Value>
           </div>
           <div>
