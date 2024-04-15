@@ -45,9 +45,9 @@ const Main = () => {
         <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
           <Menu optionsList={ADD_MENU_OPTIONS}>
-            <button className="mr-2 p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text">
+            <Button styleType={BUTTON_TYPES.ICON_BUTTON}>
               <MdAdd size={22} />
-            </button>
+            </Button>
           </Menu>
           <Button onClick={openDrawer}>
             <div className="pr-2">
@@ -65,7 +65,6 @@ const Main = () => {
         <div className="mx-10 my-5">
           <Input label="Submission Folder Name" />
           <Input label="Description" />
-
           <div className="flex justify-end">
             <Button
               variant="text"

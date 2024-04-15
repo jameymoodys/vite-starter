@@ -21,6 +21,8 @@ const Button = ({
         return `${sharedStyles} ${normalButtonMargins} bg-white `;
       case BUTTON_TYPES.NORMAL_CONFIRM:
         return `${sharedStyles} ${normalButtonMargins} bg-white hover:text-white  hover:bg-orange-ki`;
+      case BUTTON_TYPES.ICON_BUTTON:
+        return "p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text";
       default:
         return `${normalButtonMargins} hover:bg-blue-button-hover text-blue-text`;
     }

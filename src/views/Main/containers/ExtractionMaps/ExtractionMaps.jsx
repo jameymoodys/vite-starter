@@ -72,9 +72,9 @@ const ExtractionMaps = () => {
           </div>
         </div>
         <div className="ml-3">
-          <button className=" p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text">
+          <Button styleType={BUTTON_TYPES.ICON_BUTTON}>
             <MdSearch size={22} />
-          </button>
+          </Button>
         </div>
       </div>
       {data.map((el) => (
