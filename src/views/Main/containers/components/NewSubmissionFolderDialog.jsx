@@ -4,12 +4,13 @@ import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
 import DialogComponent from "../../../../components/Dialog";
 import { useForm } from "react-hook-form";
+import FormActions from "../../../../components/FormActions";
 
 const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const onSubmit = (data) => console.log(data, "data");
 
@@ -37,18 +38,7 @@ const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
             name="description"
             errors={errors}
           />
-          <div className="mb-[32px] mt-[56px] flex justify-end">
-            <Button
-              onClick={() => setOpenDialog(null)}
-              styleType={BUTTON_TYPES.NORMAL_CANCEL}
-              additionalClasses="mr-2"
-            >
-              <span>Cancel</span>
-            </Button>
-            <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
-              <span>Confirm</span>
-            </Button>
-          </div>
+          <FormActions setOpenDialog={setOpenDialog} isValid={isValid} />
         </div>
       </form>
     </DialogComponent>

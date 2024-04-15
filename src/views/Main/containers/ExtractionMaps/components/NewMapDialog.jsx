@@ -82,7 +82,7 @@ const NewMapDialog = ({ handleClose }) => {
       case 1:
         return (
           <>
-            <div className="my-4 text-blue-text">
+            <div className="my-4 text-blue-dark">
               What is the expected extraction map type?
             </div>
             <div className="divide-y-4 divide-white">
@@ -92,7 +92,7 @@ const NewMapDialog = ({ handleClose }) => {
                   className="flex cursor-pointer p-5 hover:bg-blue-button-hover"
                   onClick={() => handleType(el.title)}
                 >
-                  <div className="mr-4 size-[40px] bg-blue-text"></div>
+                  <div className="mr-4 size-[40px] bg-blue-dark"></div>
                   <div>
                     <div>{el.title}</div>
                     <SmallItalicText>{el.desc}</SmallItalicText>

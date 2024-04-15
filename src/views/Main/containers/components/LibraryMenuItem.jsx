@@ -40,7 +40,7 @@ const LibraryMenuItem = ({
     >
       <div className="flex justify-between">
         <div className="flex">
-          <div className="pr-3 text-blue-text">
+          <div className="pr-3 text-blue-dark">
             <MdWindow size={24} />
           </div>
           <div>
@@ -68,7 +68,7 @@ const LibraryMenuItem = ({
         <div className="relative text-left">
           <Menu optionsList={LIBRARY_MENU_OPTIONS}>
             <button
-              className="invisible p-2 text-grey-icons transition-opacity duration-300 hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text group-hover:visible group-hover:opacity-100"
+              className="invisible p-2 text-grey-icons transition-opacity duration-300 hover:rounded-none hover:bg-blue-button-hover hover:text-blue-dark group-hover:visible group-hover:opacity-100"
               onClick={() => setIsMenuOpen(isMenuOpen ? null : el.id)}
             >
               <MdMoreVert size={18} />

@@ -16,19 +16,19 @@ const Button = ({
     const normalButtonMargins = "px-4 py-2";
     switch (styleType) {
       case BUTTON_TYPES.SMALL_BLUE:
-        return `${sharedStyles} ${smallButtonMargins} bg-blue-light-opacity hover:bg-blue-button-hover text-blue-text text-xs`;
+        return `${sharedStyles} ${smallButtonMargins} bg-blue-light-opacity hover:bg-blue-button-hover text-blue-dark text-xs`;
       case BUTTON_TYPES.SMALL_TRANSPARENT:
-        return `${sharedStyles} ${smallButtonMargins} hover:bg-blue-button-hover text-blue-text text-xs`;
+        return `${sharedStyles} ${smallButtonMargins} hover:bg-blue-button-hover text-blue-dark text-xs`;
       case BUTTON_TYPES.NORMAL_TRANSPARENT:
-        return `${sharedStyles} ${normalButtonMargins} hover:bg-blue-button-hover text-blue-text`;
+        return `${sharedStyles} ${normalButtonMargins} hover:bg-blue-button-hover text-blue-dark`;
       case BUTTON_TYPES.NORMAL_CANCEL:
-        return `${sharedStyles} ${normalButtonMargins} hover:bg-blue-button-hover text-blue-text bg-white`;
+        return `${sharedStyles} ${normalButtonMargins} hover:bg-blue-button-hover text-blue-dark bg-white`;
       case BUTTON_TYPES.NORMAL_CONFIRM:
         return `${sharedStyles} ${normalButtonMargins} bg-blue-dark hover:text-white hover:bg-orange-ki text-white disabled:opacity-50 disabled:hover:bg-blue-dark`;
       case BUTTON_TYPES.ICON_BUTTON:
-        return "p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text";
+        return "p-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-dark";
       default:
-        return `${normalButtonMargins} hover:bg-blue-button-hover text-blue-text`;
+        return `${normalButtonMargins} hover:bg-blue-button-hover text-blue-dark`;
     }
   };
 

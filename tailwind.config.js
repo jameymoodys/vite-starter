@@ -13,15 +13,15 @@ module.exports = {
         // *BLUE*
         // Hover table rows
         "blue-button-hover": "#d6e6fe",
-        // SubMenu, Dialog/Table Header
-        "blue-text": "#135e82",
-        // primary dark blue, Header component
+        // primary dark blue, Header component, SubMenu, Dialog/Table Header
         "blue-dark": "#135e82",
         // sm buttons
         "blue-light-opacity": "rgba(19, 94, 130, 0.1)",
+        "blue-focus": "#4084f8",
         // *GREY*
         // icons, small text
         "grey-icons": "#8295a5",
+        "grey-input-label": "#8295a5",
         // footer
         "grey-background": "#efefef",
         // *GREEN*

@@ -9,8 +9,8 @@ const SubMenu = ({ links }) => {
           key={index}
           to={el.link}
           className={({ isActive }) =>
-            `z-10 cursor-pointer border-b-2 px-6 py-2 hover:border-blue-text hover:text-blue-text ${
-              isActive ? "border-blue-text text-blue-text" : "text-grey-icons"
+            `z-10 cursor-pointer border-b-2 px-6 py-2 hover:border-blue-dark hover:text-blue-dark ${
+              isActive ? "border-blue-dark text-blue-dark" : "text-grey-icons"
             }`
           }
         >
