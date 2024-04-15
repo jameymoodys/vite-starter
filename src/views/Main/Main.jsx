@@ -65,12 +65,11 @@ const Main = () => {
         <div className="mx-10 my-5">
           <Input label="Submission Folder Name" />
           <Input label="Description" />
-          <div className="flex justify-end">
+          <div className="mb-[32px] mt-[56px] flex justify-end">
             <Button
-              variant="text"
-              color="red"
               onClick={() => setOpenDialog(null)}
-              className="mr-1"
+              styleType={BUTTON_TYPES.NORMAL_CANCEL}
+              additionalClasses="mr-2"
             >
               <span>Cancel</span>
             </Button>

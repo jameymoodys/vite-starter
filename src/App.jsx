@@ -6,6 +6,7 @@ import ExtractionMaps from "./views/Main/containers/ExtractionMaps/ExtractionMap
 import Entities from "./views/Main/containers/Entities/Entities.jsx";
 import Header from "./components/Layout/Header.jsx";
 import Footer from "./components/Layout/Footer.jsx";
+import NotExist404 from "./views/NotExist404/NotExist404.jsx";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
               <Route path="entities" element={<Entities />} />
             </Route>
           </Route>
-          <Route path="*" element={<div>404 Not Found</div>} />
+          <Route path="*" element={<NotExist404 />} />
         </Routes>
       </main>
       <Footer />
