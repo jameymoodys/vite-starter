@@ -5,13 +5,17 @@ import { BUTTON_TYPES } from "../../../../utils/consts";
 import DialogComponent from "../../../../components/Dialog";
 import { useForm } from "react-hook-form";
 import FormActions from "../../../../components/FormActions";
+import CheckboxComponent from "../../../../components/Checkbox";
 
 const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: "all" });
+
+  const [checked, setChecked] = React.useState(false);
+
   const onSubmit = (data) => console.log(data, "data");
 
   return (
@@ -27,7 +31,7 @@ const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
             register={register}
             name="name"
             validation={{
-              required: "Email Address is required",
+              required: "Name is required",
               maxLength: { value: 5, message: "Max length is 5" },
             }}
             errors={errors}
@@ -38,6 +42,7 @@ const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
             name="description"
             errors={errors}
           />
+          <CheckboxComponent checked={checked} setChecked={setChecked} />
           <FormActions setOpenDialog={setOpenDialog} isValid={isValid} />
         </div>
       </form>

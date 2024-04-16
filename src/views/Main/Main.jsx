@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ROUTER_LINKS } from "../../utils/routes";
@@ -44,12 +44,14 @@ const Main = () => {
         <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
           <Menu optionsList={ADD_MENU_OPTIONS}>
-            <Button styleType={BUTTON_TYPES.ICON_BUTTON}>
-              <MdAdd size={22} />
-            </Button>
+            <div className="mr-2">
+              <Button styleType={BUTTON_TYPES.ICON_BUTTON}>
+                <MdAdd size={22} />
+              </Button>
+            </div>
           </Menu>
-          <Button onClick={openDrawer}>
-            <div className="pr-2">
+          <Button onClick={openDrawer} additionalClasses="mr-2">
+            <div className="mr-2">
               <MdOutlineLibraryBooks />
             </div>
             Library
