@@ -5,7 +5,7 @@ import { BUTTON_TYPES } from "../../../../utils/consts";
 import { MdMoreVert } from "react-icons/md";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
-import { IconButton } from "@material-tailwind/react";
+import { MdWindow } from "react-icons/md";
 
 const LibraryMenuItem = ({
   el,
@@ -40,7 +40,9 @@ const LibraryMenuItem = ({
     >
       <div className="flex justify-between">
         <div className="flex">
-          <div className="pr-3">Logo</div>
+          <div className="pr-3 text-blue-dark">
+            <MdWindow size={24} />
+          </div>
           <div>
             <div>{el.website}</div>
             <SmallItalicText>{el.username}</SmallItalicText>
@@ -65,13 +67,12 @@ const LibraryMenuItem = ({
         </div>
         <div className="relative text-left">
           <Menu optionsList={LIBRARY_MENU_OPTIONS}>
-            <IconButton
-              variant="text"
-              className="invisible text-grey-icons transition-opacity duration-300 hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text group-hover:visible group-hover:opacity-100"
+            <button
+              className="invisible p-2 text-grey-icons transition-opacity duration-300 hover:rounded-none hover:bg-blue-button-hover hover:text-blue-dark group-hover:visible group-hover:opacity-100"
               onClick={() => setIsMenuOpen(isMenuOpen ? null : el.id)}
             >
               <MdMoreVert size={18} />
-            </IconButton>
+            </button>
           </Menu>
         </div>
       </div>

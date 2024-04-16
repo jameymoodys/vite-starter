@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { ROUTER_LINKS } from "../../utils/routes";
 import { MdAdd } from "react-icons/md";
-import Dialog from "../../components/Dialog";
 import Menu from "../../components/Menu";
-import Input from "../../components/Input";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import { IconButton } from "@material-tailwind/react";
 import HeadingText from "../../components/Typography/HeadingText";
+import { BUTTON_TYPES } from "../../utils/consts";
+import NewSubmissionFolderDialog from "./containers/components/NewSubmissionFolderDialog";
 
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -45,29 +44,24 @@ const Main = () => {
         <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
           <Menu optionsList={ADD_MENU_OPTIONS}>
-            <IconButton
-              variant="text"
-              className="mr-2 text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
-            >
-              <MdAdd size={22} />
-            </IconButton>
+            <div className="mr-2">
+              <Button styleType={BUTTON_TYPES.ICON_BUTTON}>
+                <MdAdd size={22} />
+              </Button>
+            </div>
           </Menu>
-          <Button onClick={openDrawer}>
-            <div className="pr-2">
+          <Button onClick={openDrawer} additionalClasses="mr-2">
+            <div className="mr-2">
               <MdOutlineLibraryBooks />
             </div>
             Library
           </Button>
         </div>
       </div>
-      <Dialog
-        isOpen={openDialog}
-        handleOpen={() => setOpenDialog((open) => !open)}
-        title={"NEW SUBMISSION FOLDER"}
-      >
-        <Input label="Submission Folder Name" />
-        <Input label="Description" />
-      </Dialog>
+      <NewSubmissionFolderDialog
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+      />
       <Outlet context={{ closeDrawer }} />
     </>
   );

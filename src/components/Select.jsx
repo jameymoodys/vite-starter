@@ -1,47 +1,60 @@
 import React from "react";
-import {
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-  Typography,
-} from "@material-tailwind/react";
+import * as Select from "@radix-ui/react-select";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import clsx from "clsx";
 
-const Select = ({ onChange, value, menuItems }) => {
-  const [openMenu, setOpenMenu] = React.useState(false);
+const SelectComponent = ({ onChange, value, menuItems, disabled }) => {
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <>
-      <Menu open={openMenu} handler={setOpenMenu}>
-        <MenuHandler>
-          <div className="flex items-center px-2 py-1 text-[12px] font-normal tracking-normal hover:cursor-pointer hover:bg-blue-button-hover">
-            {value || "test"}
+    <Select.Root
+      value={value}
+      onValueChange={onChange}
+      onOpenChange={setOpen}
+      disabled={menuItems.length === 0 || disabled}
+    >
+      <Select.Trigger
+        className={clsx(
+          "relative flex items-center",
+          (menuItems.length === 0 || disabled) && "opacity-30",
+        )}
+      >
+        <div className="relative flex items-center">
+          <div className="mr-2 min-w-[25px] text-[12px] italic">
+            <Select.Value aria-label={value}>{value}</Select.Value>
+          </div>
+          <div>
             <MdKeyboardArrowDown
+              size={18}
               className={`h-3.5 w-3.5 transition-transform ${
-                openMenu ? "rotate-180" : ""
+                open ? "rotate-180" : ""
               }`}
             />
           </div>
-        </MenuHandler>
-        <MenuList className="hidden overflow-visible p-0 lg:grid">
-          <ul className="col-span-4 flex w-full flex-col gap-1">
-            {menuItems.map(({ title }) => (
-              <MenuItem
-                key={title}
-                className="m-0"
-                onClick={() => onChange(title)}
+        </div>
+      </Select.Trigger>
+      <Select.Portal className="z-50">
+        <Select.Content
+          position="popper"
+          className="absolute mt-1 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        >
+          <Select.Viewport>
+            {menuItems.map((item) => (
+              <Select.Item
+                key={item.id}
+                value={item.title}
+                className="cursor-pointer p-2 hover:bg-blue-button-hover"
               >
-                <Typography variant="small" color="blue-gray">
-                  {title}
-                </Typography>
-              </MenuItem>
+                <div className="text-[12px] italic text-black">
+                  <Select.ItemText>{item.title || "test"}</Select.ItemText>
+                </div>
+              </Select.Item>
             ))}
-          </ul>
-        </MenuList>
-      </Menu>
-    </>
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 };
 
-export default Select;
+export default SelectComponent;

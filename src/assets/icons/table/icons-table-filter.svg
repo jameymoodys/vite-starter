@@ -1,0 +1,12 @@
+<svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#135E82" fill-rule="evenodd">
+        <g transform="translate(.5 1)">
+            <circle fill-rule="nonzero" transform="matrix(1 0 0 -1 0 18)" cx="2.5" cy="9" r="2.5"/>
+            <path d="M1.75 0h1.5v5.978L2.5 7l-.75-1.022zM1.75 14h1.5v-1.978L2.5 11l-.75 1.022z"/>
+        </g>
+        <g transform="matrix(1 0 0 -1 6.5 15)">
+            <circle fill-rule="nonzero" transform="matrix(1 0 0 -1 0 18)" cx="2.5" cy="9" r="2.5"/>
+            <path d="M1.75 0h1.5v5.978L2.5 7l-.75-1.022zM1.75 14h1.5v-1.978L2.5 11l-.75 1.022z"/>
+        </g>
+    </g>
+</svg>

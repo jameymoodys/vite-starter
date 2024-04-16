@@ -18,10 +18,10 @@ const Drawer = () => {
   return (
     <div className="drawer fixed right-0 top-0 z-50 h-full w-[600px] translate-x-0 transform bg-white text-black transition-transform duration-300 ease-in-out">
       <div className="flex items-center justify-between p-5">
-        <div className="text-[16px] text-base text-blue-text">Library</div>
+        <div className="text-[16px] text-base text-blue-dark">Library</div>
         <div className="flex items-center justify-center">
           <div
-            className="group inline-flex cursor-pointer items-center rounded p-2 font-bold text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-text"
+            className="group inline-flex cursor-pointer items-center rounded p-2 font-bold text-grey-icons hover:rounded-none hover:bg-blue-button-hover hover:text-blue-dark"
             onClick={closeDrawer}
           >
             <span className="group-hover:block">

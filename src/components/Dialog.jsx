@@ -1,39 +1,20 @@
 import React from "react";
-import {
-  Dialog as DialogMaterial,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
-import Button from "./Button";
-import { BUTTON_TYPES } from "../utils/consts";
+import * as Dialog from "@radix-ui/react-dialog";
 
-const Dialog = ({ isOpen, handleOpen, title, renderDialogBody, children }) => {
+const DialogComponent = ({ isOpen, handleClose, title, children }) => {
   return (
-    <DialogMaterial
-      open={isOpen}
-      handler={handleOpen}
-      className="rounded-none"
-      size="sm"
-    >
-      <div className="mt-[20px] px-[32px] text-[16px] uppercase text-blue-text">
-        {title}
-      </div>
-      <DialogBody>{children}</DialogBody>
-      <DialogFooter>
-        <Button
-          variant="text"
-          color="red"
-          onClick={handleOpen}
-          className="mr-1"
-        >
-          <span>Cancel</span>
-        </Button>
-        <Button type="submit" styleType={BUTTON_TYPES.NORMAL_CONFIRM}>
-          <span>Confirm</span>
-        </Button>
-      </DialogFooter>
-    </DialogMaterial>
+    <Dialog.Root open={isOpen} onOpenChange={handleClose}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-60" />
+        <Dialog.Content className="fixed left-[50%] top-[50%] max-h-[85vh] min-w-[384px] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+          <Dialog.Title className="mb-[52px] mt-[24px] px-[32px] text-[16px] uppercase text-blue-dark">
+            {title}
+          </Dialog.Title>
+          {children}
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };
 
-export default Dialog;
+export default DialogComponent;
