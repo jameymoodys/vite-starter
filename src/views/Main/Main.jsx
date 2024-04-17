@@ -12,10 +12,6 @@ import NewSubmissionFolderDialog from "./containers/components/NewSubmissionFold
 const Main = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(ROUTER_LINKS.LIBRARY);
-
-  const open = location.pathname.includes(ROUTER_LINKS.LIBRARY);
-
   const openDrawer = () => navigate(ROUTER_LINKS.LIBRARY_EXTRACTION_MAPS);
   const closeDrawer = () => {
     navigate(ROUTER_LINKS.MAIN);
@@ -34,12 +30,6 @@ const Main = () => {
 
   return (
     <>
-      {open && (
-        <div
-          className="fixed inset-0 z-40 bg-black opacity-50"
-          onClick={closeDrawer}
-        ></div>
-      )}
       <div className="mx-4 flex items-center justify-between pt-2">
         <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
