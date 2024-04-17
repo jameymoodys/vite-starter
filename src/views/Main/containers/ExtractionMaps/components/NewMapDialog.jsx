@@ -8,6 +8,7 @@ import Chip from "../../../../../components/Chip";
 import { MdClose } from "react-icons/md";
 import Button from "../../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../../utils/consts";
+import { useForm } from "react-hook-form";
 
 const EXTRACTION_MAPS_TYPES = [
   {
@@ -35,6 +36,11 @@ const EXTRACTION_MAPS_TYPES = [
 const NewMapDialog = ({ handleClose }) => {
   const [step, setStep] = useState(1);
   const [mapType, setMapType] = useState(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({ mode: "all" });
 
   const handleType = (type) => {
     setMapType(type);
@@ -151,7 +157,13 @@ const NewMapDialog = ({ handleClose }) => {
       handleClose={handleClose}
     >
       <div className="m-10">
-        <Input label="Map Name" />
+        <Input
+          label="Map Name"
+          register={register}
+          name="name"
+          validation={{}}
+          errors={errors}
+        />
         {renderStep()}
       </div>
     </DialogComponent>
