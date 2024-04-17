@@ -77,17 +77,19 @@ const ExtractionMaps = () => {
           </Button>
         </div>
       </div>
-      <QueryStatus isLoading={isLoading} isError={isError}>
-        {data?.map((el) => (
-          <LibraryMenuItem
-            el={el}
-            setExpandedId={setExpandedId}
-            expandedId={expandedId}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-          />
-        ))}
-      </QueryStatus>
+      <div className="h-[900px] overflow-auto">
+        <QueryStatus isLoading={isLoading} isError={isError}>
+          {data?.map((el) => (
+            <LibraryMenuItem
+              el={el}
+              setExpandedId={setExpandedId}
+              expandedId={expandedId}
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+            />
+          ))}
+        </QueryStatus>
+      </div>
       {renderDialog()}
     </div>
   );

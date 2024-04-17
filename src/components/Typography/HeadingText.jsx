@@ -1,8 +1,11 @@
+import clsx from "clsx";
 import React from "react";
 
-const HeadingText = ({ children }) => {
+const HeadingText = ({ children, additionalClasses = "" }) => {
   return (
-    <span className="text-[16px] font-medium text-blue-dark">{children}</span>
+    <span className={clsx("text-[16px] font-medium", additionalClasses)}>
+      {children}
+    </span>
   );
 };
 
