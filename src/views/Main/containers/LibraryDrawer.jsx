@@ -16,11 +16,11 @@ const LibraryDrawer = () => {
   const { closeDrawer } = useOutletContext();
 
   return (
-    <Drawer handleClose={closeDrawer}>
+    <Drawer handleClose={closeDrawer} label={"Library"}>
       <div>
         <div className="relative">
           <SubMenu links={MENU_LINKS} />
-          <div className="absolute top-10 h-[1px] w-full border-b-2" />
+          <div className="absolute top-[37px] h-[1px] w-full border-b-2" />
         </div>
       </div>
       <Outlet />

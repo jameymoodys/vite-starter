@@ -57,7 +57,11 @@ const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
             name="description"
             errors={errors}
           />
-          <CheckboxComponent checked={checked} setChecked={setChecked} />
+          <CheckboxComponent
+            checked={checked}
+            setChecked={setChecked}
+            label="Publish"
+          />
           <FormActions setOpenDialog={setOpenDialog} isValid={isValid} />
         </div>
       </form>
