@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Button from "../../../../components/Button";
 import { BUTTON_TYPES } from "../../../../utils/consts";
 import LibraryMenuItem from "../components/LibraryMenuItem";
@@ -6,6 +7,8 @@ import { MdSearch } from "react-icons/md";
 import SelectComponent from "../../../../components/Select";
 import SmallItalicText from "../../../../components/Typography/SmallItalicText";
 import NewMapDialog from "./components/NewMapDialog";
+import { getExtractionMaps } from "../../../../api/extractionMaps";
+import QueryStatus from "../../../../components/QueryStatus";
 
 const MENU_ITEMS = [
   {
@@ -29,15 +32,12 @@ const DIALOG_TYPES = {
 const ExtractionMaps = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
-  const [data, setData] = useState([]);
   const [filterValue, setFilterValue] = useState(null);
   const [openDialog, setOpenDialog] = useState(null);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => setData(json));
-  }, []);
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["extractionMaps"],
+    queryFn: () => getExtractionMaps(),
+  });
 
   const renderDialog = () => {
     switch (openDialog) {
@@ -77,15 +77,17 @@ const ExtractionMaps = () => {
           </Button>
         </div>
       </div>
-      {data.map((el) => (
-        <LibraryMenuItem
-          el={el}
-          setExpandedId={setExpandedId}
-          expandedId={expandedId}
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-        />
-      ))}
+      <QueryStatus isLoading={isLoading} isError={isError}>
+        {data?.map((el) => (
+          <LibraryMenuItem
+            el={el}
+            setExpandedId={setExpandedId}
+            expandedId={expandedId}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+          />
+        ))}
+      </QueryStatus>
       {renderDialog()}
     </div>
   );

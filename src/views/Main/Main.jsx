@@ -58,10 +58,12 @@ const Main = () => {
           </Button>
         </div>
       </div>
-      <NewSubmissionFolderDialog
-        openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
-      />
+      {openDialog && (
+        <NewSubmissionFolderDialog
+          openDialog={openDialog}
+          setOpenDialog={setOpenDialog}
+        />
+      )}
       <Outlet context={{ closeDrawer }} />
     </>
   );

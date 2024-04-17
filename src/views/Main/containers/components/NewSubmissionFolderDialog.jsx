@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../../../components/Input";
-import Button from "../../../../components/Button";
-import { BUTTON_TYPES } from "../../../../utils/consts";
+import { useMutation } from "@tanstack/react-query";
 import DialogComponent from "../../../../components/Dialog";
 import { useForm } from "react-hook-form";
 import FormActions from "../../../../components/FormActions";
 import CheckboxComponent from "../../../../components/Checkbox";
+import { createExtractionMap } from "../../../../api/extractionMaps";
+import { useQueryClient } from "@tanstack/react-query";
 
 const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
   const {
@@ -13,15 +14,29 @@ const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({ mode: "all" });
+  const [checked, setChecked] = useState(false);
 
-  const [checked, setChecked] = React.useState(false);
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: (data) => createExtractionMap(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries("extractionMaps");
+    },
+  });
 
-  const onSubmit = (data) => console.log(data, "data");
+  const onSubmit = (data) => {
+    mutate(data);
+    setOpenDialog(false);
+  };
+
+  const handleClose = () => {
+    setOpenDialog(false);
+  };
 
   return (
     <DialogComponent
       isOpen={openDialog}
-      handleClose={() => setOpenDialog((open) => !open)}
+      handleClose={handleClose}
       title={"NEW SUBMISSION FOLDER"}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
