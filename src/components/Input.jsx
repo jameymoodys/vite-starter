@@ -15,7 +15,7 @@ const Input = ({ label, errors, register, name, validation = {} }) => {
   };
 
   return (
-    <div className="mb-8">
+    <div>
       <div className="relative">
         <input
           {...register(name, validation)}
@@ -25,17 +25,17 @@ const Input = ({ label, errors, register, name, validation = {} }) => {
             `z-10 block w-full border-b-[1px] px-0 pb-1 outline-none transition-all duration-200 focus:ring-0`,
             errors[name]
               ? "border-red-error"
-              : `focus:border-blue-focus border-grey-input-label`,
+              : `focus:border-blue-focus border-grey-icons`,
           )}
         />
         <label
           className={clsx(
-            `pointer-events-none absolute bottom-0 left-0 px-0 py-1 transition-all duration-200`,
+            `pointer-events-none absolute bottom-0 left-0 px-0 py-2 transition-all duration-200`,
             errors[name]
               ? "text-red-error"
               : isFocused
                 ? "text-blue-focus -translate-y-7 transform text-sm"
-                : "text-grey-input-label",
+                : "text-grey-icons",
             (isFocused || hasValue) && "-translate-y-7 transform text-sm",
           )}
         >
@@ -43,7 +43,9 @@ const Input = ({ label, errors, register, name, validation = {} }) => {
         </label>
       </div>
       {errors[name] && (
-        <span className="text-sm text-red-error">{errors[name].message}</span>
+        <span className="text-[12px] italic text-red-error">
+          {errors[name].message}
+        </span>
       )}
     </div>
   );

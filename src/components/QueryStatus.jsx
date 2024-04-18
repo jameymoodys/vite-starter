@@ -2,11 +2,19 @@ import React from "react";
 
 const QueryStatus = ({ isLoading, isError, children }) => {
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <div>Loading...</div>
+      </div>
+    );
   }
 
   if (isError) {
-    return <div>Error</div>;
+    return (
+      <div>
+        <div>Something went wrong. Please try again.</div>
+      </div>
+    );
   }
 
   return <>{children}</>;

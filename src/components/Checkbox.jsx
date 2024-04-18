@@ -14,7 +14,7 @@ const CheckboxComponent = ({ checked, setChecked, label }) => {
             "hover:bg-blue-hover flex size-[15px] items-center justify-center rounded-sm border outline-none",
             checked
               ? "bg-blue-focus border-blue-focus"
-              : "border-grey-input-label bg-white",
+              : "border-grey-icons bg-white",
           )}
           id="c1"
         >
@@ -24,7 +24,7 @@ const CheckboxComponent = ({ checked, setChecked, label }) => {
         </Checkbox.Root>
         {label && (
           <label
-            className="cursor-pointer pl-[15px] text-[15px] leading-none text-black"
+            className="cursor-pointer pl-[15px] text-[14px] leading-none text-black"
             htmlFor="c1"
           >
             {label}

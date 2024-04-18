@@ -41,22 +41,26 @@ const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-10 my-5">
-          <Input
-            label="Submission Folder Name"
-            register={register}
-            name="name"
-            validation={{
-              required: "Name is required",
-              maxLength: { value: 5, message: "Max length is 5" },
-            }}
-            errors={errors}
-          />
-          <Input
-            label="Description"
-            register={register}
-            name="description"
-            errors={errors}
-          />
+          <div className="mb-[38px]">
+            <Input
+              label="Submission Folder Name"
+              register={register}
+              name="name"
+              validation={{
+                required: "Name is required",
+                maxLength: { value: 5, message: "Max length is 5" },
+              }}
+              errors={errors}
+            />
+          </div>
+          <div className="mb-[24px]">
+            <Input
+              label="Description"
+              register={register}
+              name="description"
+              errors={errors}
+            />
+          </div>
           <CheckboxComponent
             checked={checked}
             setChecked={setChecked}
