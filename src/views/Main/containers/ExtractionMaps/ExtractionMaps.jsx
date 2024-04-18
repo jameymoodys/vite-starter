@@ -32,7 +32,7 @@ const DIALOG_TYPES = {
 const ExtractionMaps = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
-  const [filterValue, setFilterValue] = useState(null);
+  const [filterValue, setFilterValue] = useState(1);
   const [openDialog, setOpenDialog] = useState(null);
   const { data, isLoading, isError } = useQuery({
     queryKey: ["extractionMaps"],

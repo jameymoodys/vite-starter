@@ -18,7 +18,6 @@ module.exports = {
         grey: {
           // icons, small text
           icons: "#8295a5",
-          "input-label": "#8295a5",
           // footer
           background: "#efefef",
         },
