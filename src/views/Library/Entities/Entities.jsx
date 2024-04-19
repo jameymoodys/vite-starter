@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Button from "../../../../components/Button";
-import { BUTTON_TYPES } from "../../../../utils/consts";
-import SmallItalicText from "../../../../components/Typography/SmallItalicText";
-import SelectComponent from "../../../../components/Select";
+import Button from "../../../components/ui/Button";
+import { BUTTON_TYPES } from "../../../utils/consts";
+import SmallItalicText from "../../../components/ui/Typography/SmallItalicText";
+import SelectComponent from "../../../components/ui/Select";
 
 const Entities = () => {
   const [filterValue, setFilterValue] = useState(null);

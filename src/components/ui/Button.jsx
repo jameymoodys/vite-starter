@@ -1,5 +1,5 @@
 import React from "react";
-import { BUTTON_TYPES } from "../utils/consts";
+import { BUTTON_TYPES } from "../../utils/consts";
 import clsx from "clsx";
 
 const sharedStyles = "flex items-center disabled:cursor-default";

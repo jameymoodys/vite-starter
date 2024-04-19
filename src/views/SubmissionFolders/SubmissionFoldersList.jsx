@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import Button from "../../components/Button";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { ROUTER_LINKS } from "../../utils/routes";
+import Button from "../../components/ui/Button";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { ROUTE_MAIN } from "../../utils/routes";
 import { MdAdd } from "react-icons/md";
-import Menu from "../../components/Menu";
-import { MdOutlineLibraryBooks } from "react-icons/md";
-import HeadingText from "../../components/Typography/HeadingText";
+import Menu from "../../components/ui/Menu";
+import HeadingText from "../../components/ui/Typography/HeadingText";
 import { BUTTON_TYPES } from "../../utils/consts";
-import NewSubmissionFolderDialog from "./containers/components/NewSubmissionFolderDialog";
+import DatePickerCustom from "../../components/ui/DatePicker";
+import NewSubmissionFolderDialog from "../Library/components/NewSubmissionFolderDialog";
+import LibraryButton from "../../components/reusable/LibraryButton/LibraryButton";
 
-const Main = () => {
+const SubmissionFolders = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const navigate = useNavigate();
-  const openDrawer = () => navigate(ROUTER_LINKS.LIBRARY_EXTRACTION_MAPS);
   const closeDrawer = () => {
-    navigate(ROUTER_LINKS.MAIN);
+    navigate(ROUTE_MAIN);
   };
 
   const ADD_MENU_OPTIONS = [
@@ -30,7 +30,7 @@ const Main = () => {
 
   return (
     <>
-      <div className="mx-4 flex items-center justify-between pt-2">
+      <div className="mx-4 mt-4 flex items-center justify-between">
         <HeadingText>Submission Folders</HeadingText>
         <div className="flex">
           <Menu optionsList={ADD_MENU_OPTIONS}>
@@ -40,12 +40,7 @@ const Main = () => {
               </Button>
             </div>
           </Menu>
-          <Button onClick={openDrawer} additionalClasses="mr-2">
-            <div className="mr-2">
-              <MdOutlineLibraryBooks />
-            </div>
-            Library
-          </Button>
+          <LibraryButton />
         </div>
       </div>
       {openDialog && (
@@ -55,8 +50,12 @@ const Main = () => {
         />
       )}
       <Outlet context={{ closeDrawer }} />
+      <Link to="/submission-folders/3">View Submission folder</Link>
+      <div className="ml-5 mt-5 w-[500px]">
+        <DatePickerCustom />
+      </div>
     </>
   );
 };
 
-export default Main;
+export default SubmissionFolders;

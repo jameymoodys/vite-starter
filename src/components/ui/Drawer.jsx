@@ -1,6 +1,6 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
-import HeadingText from "../components/Typography/HeadingText";
+import HeadingText from "./Typography/HeadingText";
 
 const Drawer = ({ handleClose, label, children }) => {
   return (

@@ -1,17 +1,21 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useNavigate } from "react-router-dom";
 
 // components
-import LibraryDrawer from "./views/Main/containers/LibraryDrawer.jsx";
+import LibraryDrawer from "./views/Library/LibraryDrawer.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ExtractionMaps from "./views/Main/containers/ExtractionMaps/ExtractionMaps.jsx";
-import Entities from "./views/Main/containers/Entities/Entities.jsx";
-import Header from "./components/Layout/Header.jsx";
-import Footer from "./components/Layout/Footer.jsx";
+import ExtractionMaps from "./views/Library/ExtractionMaps/ExtractionMaps.jsx";
+import Entities from "./views/Library/Entities/Entities.jsx";
+import Header from "./components/reusable/Layout/Header.jsx";
+import Footer from "./components/reusable/Layout/Footer.jsx";
 import NotExist404 from "./views/NotExist404/NotExist404.jsx";
 import LoadingProgress from "./views/LoadingProgress/LoadingProgress.jsx";
-const Main = lazy(() => import("./views/Main/Main.jsx"));
+import SubmissionFolderView from "./views/Documents/SubmissionFolderView.jsx";
+const SubmissionFoldersList = lazy(
+  () => import("./views/SubmissionFolders/SubmissionFoldersList.jsx"),
+);
 
 // Create a client
 const queryClient = new QueryClient();
@@ -19,23 +23,24 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/">
-        <Header />
-        <main>
-          <Suspense fallback={<LoadingProgress />}>
-            <Routes>
-              <Route path="/" element={<Main />}>
-                <Route path="library" element={<LibraryDrawer />}>
-                  <Route path="extraction-maps" element={<ExtractionMaps />} />
-                  <Route path="entities" element={<Entities />} />
-                </Route>
-              </Route>
-              <Route path="*" element={<NotExist404 />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </BrowserRouter>
+      <Header />
+      <main>
+        <Suspense fallback={<LoadingProgress />}>
+          <Routes>
+            <Route path="/" element={<SubmissionFoldersList />}>
+              <Route path="library/*" element={<LibraryDrawer />} />
+            </Route>
+            <Route
+              path="/submission-folders/:id"
+              element={<SubmissionFolderView />}
+            >
+              <Route path="library/*" element={<LibraryDrawer />} />
+            </Route>
+            <Route path="*" element={<NotExist404 />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
       <ReactQueryDevtools />
     </QueryClientProvider>
   );

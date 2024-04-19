@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import { BUTTON_TYPES } from "../utils/consts";
+import { BUTTON_TYPES } from "../../utils/consts";
 
 const FormActions = ({ setOpenDialog, isValid }) => {
   return (

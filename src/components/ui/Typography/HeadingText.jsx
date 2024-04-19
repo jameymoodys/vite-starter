@@ -3,9 +3,7 @@ import React from "react";
 
 const HeadingText = ({ children, additionalClasses = "" }) => {
   return (
-    <span className={clsx("text-[16px] font-medium", additionalClasses)}>
-      {children}
-    </span>
+    <span className={clsx("text-[16px]", additionalClasses)}>{children}</span>
   );
 };
 

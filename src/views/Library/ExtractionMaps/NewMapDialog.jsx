@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-import DialogComponent from "../../../../../components/Dialog";
-import Input from "../../../../../components/Input";
-import SmallItalicText from "../../../../../components/Typography/SmallItalicText";
-import Chip from "../../../../../components/Chip";
+import DialogComponent from "../../../components/ui/Dialog";
+import Input from "../../../components/ui/Input";
+import SmallItalicText from "../../../components/ui/Typography/SmallItalicText";
+import Chip from "../../../components/ui/Chip";
 import { MdClose } from "react-icons/md";
-import Button from "../../../../../components/Button";
-import { BUTTON_TYPES } from "../../../../../utils/consts";
+import Button from "../../../components/ui/Button";
+import { BUTTON_TYPES } from "../../../utils/consts";
 import { useForm } from "react-hook-form";
 
 const EXTRACTION_MAPS_TYPES = [
