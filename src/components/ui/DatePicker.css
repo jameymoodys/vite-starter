@@ -1,0 +1,11 @@
+.react-calendar__tile--now {
+  background-color: violet;
+}
+
+.react-date-picker__wrapper {
+  border: 0px;
+}
+
+.react-date-picker__inputGroup__input:invalid {
+  background-color: white;
+}

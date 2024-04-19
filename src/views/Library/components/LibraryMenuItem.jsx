@@ -1,11 +1,11 @@
 import React from "react";
-import Menu from "../../../../components/Menu";
-import Button from "../../../../components/Button";
-import { BUTTON_TYPES } from "../../../../utils/consts";
+import Button from "../../../components/ui/Button";
+import { BUTTON_TYPES } from "../../../utils/consts";
 import { MdMoreVert } from "react-icons/md";
 import { MdOutlineOpenInNew } from "react-icons/md";
-import SmallItalicText from "../../../../components/Typography/SmallItalicText";
+import SmallItalicText from "../../../components/ui/Typography/SmallItalicText";
 import { MdWindow } from "react-icons/md";
+import Menu from "../../../components/ui/Menu";
 
 const LibraryMenuItem = ({
   el,

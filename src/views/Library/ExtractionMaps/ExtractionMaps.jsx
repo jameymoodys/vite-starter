@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import Button from "../../../../components/Button";
-import { BUTTON_TYPES } from "../../../../utils/consts";
+import Button from "../../../components/ui/Button";
+import { BUTTON_TYPES } from "../../../utils/consts";
 import LibraryMenuItem from "../components/LibraryMenuItem";
 import { MdSearch } from "react-icons/md";
-import SelectComponent from "../../../../components/Select";
-import SmallItalicText from "../../../../components/Typography/SmallItalicText";
-import NewMapDialog from "./components/NewMapDialog";
-import { getExtractionMaps } from "../../../../api/extractionMaps";
-import QueryStatus from "../../../../components/QueryStatus";
+import SelectComponent from "../../../components/ui/Select";
+import SmallItalicText from "../../../components/ui/Typography/SmallItalicText";
+import NewMapDialog from "./NewMapDialog";
+import { getExtractionMaps } from "../../../api/extractionMaps";
+import QueryStatus from "../../../components/ui/QueryStatus";
 
 const MENU_ITEMS = [
   {

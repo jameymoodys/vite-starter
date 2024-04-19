@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Input from "../../../../components/Input";
+import Input from "../../../components/ui/Input";
 import { useMutation } from "@tanstack/react-query";
-import DialogComponent from "../../../../components/Dialog";
+import DialogComponent from "../../../components/ui/Dialog";
 import { useForm } from "react-hook-form";
-import FormActions from "../../../../components/FormActions";
-import CheckboxComponent from "../../../../components/Checkbox";
-import { createExtractionMap } from "../../../../api/extractionMaps";
+import FormActions from "../../../components/ui/FormActions";
+import CheckboxComponent from "../../../components/ui/Checkbox";
+import { createExtractionMap } from "../../../api/extractionMaps";
 import { useQueryClient } from "@tanstack/react-query";
 
 const NewSubmissionFolderDialog = ({ openDialog, setOpenDialog }) => {
