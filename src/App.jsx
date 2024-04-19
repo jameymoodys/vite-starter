@@ -27,11 +27,13 @@ const App = () => {
       <main>
         <Suspense fallback={<LoadingProgress />}>
           <Routes>
-            <Route path="/" element={<SubmissionFoldersList />}>
+            <Route path="/*" element={<SubmissionFoldersList />}>
               <Route path="library/*" element={<LibraryDrawer />} />
+              <Route path="" element={<div>Documents</div>} />
+              <Route path="archive" element={<div>Archive</div>} />
             </Route>
             <Route
-              path="/submission-folders/:id"
+              path="/submission-folders/:id/*"
               element={<SubmissionFolderView />}
             >
               <Route path="library/*" element={<LibraryDrawer />} />
