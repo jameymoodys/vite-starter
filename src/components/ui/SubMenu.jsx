@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SmallItalicText from "./Typography/SmallItalicText";
 
 const SubMenu = ({ links }) => {
   return (
@@ -16,7 +17,8 @@ const SubMenu = ({ links }) => {
             )
           }
         >
-          {el.displayName}
+          <div>{el.displayName}</div>
+          {el.desc && <SmallItalicText>{el.desc}</SmallItalicText>}
         </NavLink>
       ))}
     </div>

@@ -1,10 +1,6 @@
 import React from "react";
 import SubMenu from "../../components/ui/SubMenu";
 import { Outlet, Route, Routes, useOutletContext } from "react-router-dom";
-import {
-  ROUTE_LIBRARY_ENTITIES,
-  ROUTE_LIBRARY_EXTRACTION_MAPS,
-} from "../../utils/routes";
 import Drawer from "../../components/ui/Drawer";
 import ExtractionMaps from "./ExtractionMaps/ExtractionMaps";
 import Entities from "./Entities/Entities";
