@@ -6,6 +6,7 @@ import { MdOutlineOpenInNew } from "react-icons/md";
 import SmallItalicText from "../../../components/ui/Typography/SmallItalicText";
 import { MdWindow } from "react-icons/md";
 import Menu from "../../../components/ui/Menu";
+import clsx from "clsx";
 
 const LibraryMenuItem = ({
   el,
@@ -31,11 +32,12 @@ const LibraryMenuItem = ({
   return (
     <div
       key={el.id}
-      className={`group  cursor-pointer p-4 ${
+      className={clsx(
+        `group cursor-pointer p-4`,
         el.id === expandedId
           ? "bg-blue-light-opacity"
-          : "hover:bg-blue-button-hover"
-      }`}
+          : "hover:bg-blue-button-hover",
+      )}
       onClick={() => setExpandedId(el.id)}
     >
       <div className="flex justify-between">
